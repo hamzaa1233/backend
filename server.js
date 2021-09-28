@@ -39,13 +39,24 @@ import Clarifai from 'clarifai';
 
 const appp = new Clarifai.App({apiKey:'f01ebf1672d94fd2af05a1245e663d56'});
 
+// const db = knex({
+//     client:'pg',
+//     connection:{
+//         host:'localhost',
+//         user:'postgres',
+//         password:'root',
+//         database:'project'
+//     }
+// });
+
+
 const db = knex({
     client:'pg',
     connection:{
-        host:'localhost',
-        user:'postgres',
-        password:'root',
-        database:'project'
+        connectionString:process.env.DATABASE_URL,
+        ssl:{
+            rejectUnauthorized:false
+        }
     }
 });
 
@@ -233,7 +244,7 @@ app.post('/imageurl',(req,res)=>{
 // });
 
 
-app.listen(4000,()=>{
-    console.log('App is running on port 4000');
+app.listen(process.env.PORT||4000,()=>{
+    console.log(`App is ruuning on port ${process.env.PORT}`);
 })
 
