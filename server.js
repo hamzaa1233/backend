@@ -69,7 +69,7 @@ app.use(bodyParser.json());
 
 
 app.get('/',(req,res)=>{
-    res.send(database.users);
+    res.send('It is WORKING FINE');
 })
 
 app.post('/signin',(req,res)=>{
