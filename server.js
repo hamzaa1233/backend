@@ -49,11 +49,11 @@ const appp = new Clarifai.App({apiKey:'f01ebf1672d94fd2af05a1245e663d56'});
 //     }
 // });
 
-
+// process.env.DATABASE_URL
 const db = knex({
     client:'pg',
     connection:{
-        connectionString:process.env.DATABASE_URL,
+        connectionString:'postgresql-globular-90685',
         ssl:{
             rejectUnauthorized:false
         }
